@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Assignment No7</title>
+</head>
+<body>
+    <!-- Exercise No 01 -->
+  <!-- <h1>Find the Maximum Number</h1>
+  <p>Enter two numbers:</p>
+  <input type="number" id="num1" placeholder="Number 1">
+  <input type="number" id="num2" placeholder="Number 2">
+  <button onclick="findMax()">Find Maximum</button>
+  <p id="result"></p>
+
+  <script>
+    function findMax() {
+  const num1 = parseInt(document.getElementById("num1").value);
+  const num2 = parseInt(document.getElementById("num2").value);
+  const max = Math.max(num1, num2);
+  document.getElementById("result").innerHTML = `The maximum number is: ${max}`;
+}
+
+  </script> -->
+<!-- Exercise No 02
+  <h1>Check Number Sign</h1>
+  <p>Enter a number:</p>
+  <input type="number" id="number" placeholder="Enter a number">
+  <button onclick="checkNumber()">Check Sign</button>
+  <p id="result"></p>
+  <script>
+    function checkNumber() {
+  const number = parseInt(document.getElementById("number").value);
+  let resultText;
+
+  if (number < 0) {
+    resultText = "The number is negative";
+  } else if (number > 0) {
+    resultText = "The number is positive";
+  } else {
+    resultText = "The number is zero";
+  }
+
+  document.getElementById("result").innerHTML = resultText;
+}
+
+  </script> -->
+<!-- Exercise no4
+<h1>Check Divisibility</h1>
+  <p>Enter a number:</p>
+  <input type="number" id="number" placeholder="Enter a number">
+  <button onclick="checkDivisibility()">Check</button>
+  <p id="result"></p>
+<script>
+    function checkDivisibility() {
+  const number = parseInt(document.getElementById("number").value);
+  const isDivisible = number % 5 === 0 && number % 11 === 0;
+  let resultText;
+
+  if (isDivisible) {
+    resultText = "The number is divisible by 5 and 11";
+  } else {
+    resultText = "The number is not divisible by 5 and 11";
+  }
+
+  document.getElementById("result").innerHTML = resultText;
+}
+
+</script> -->
+<!-- ExerciseNO5
+<h1>Check Even or Odd</h1>
+  <p>Enter a number:</p>
+  <input type="number" id="number" placeholder="Enter a number">
+  <button onclick="checkEvenOdd()">Check</button>
+  <p id="result"></p>
+<script>function checkEvenOdd() {
+    const number = parseInt(document.getElementById("number").value);
+    const isEven = number % 2 === 0;
+    let resultText;
+  
+    if (isEven) {
+      resultText = "The number is even";
+    } else {
+      resultText = "The number is odd";
+    }
+  
+    document.getElementById("result").innerHTML = resultText;
+  }
+  </script> -->
+
+  <!-- Exercise No 6
+  <h1>Check Leap Year</h1>
+  <p>Enter a year:</p>
+  <input type="number" id="year" placeholder="Enter year">
+  <button onclick="checkLeapYear()">Check</button>
+  <p id="result"></p>
+  <script>
+    function checkLeapYear(year) {
+  // Check for divisibility by 4 (except for century years)
+  if (year % 4 === 0 && year % 100 !== 0) {
+    return true;
+  }
+
+  // Check for century years divisible by 400
+  return year % 400 === 0;
+}
+
+function handleLeapYearCheck() {
+  const year = parseInt(document.getElementById("year").value);
+  const isLeap = checkLeapYear(year);
+  const resultText = isLeap ? "Leap year" : "Not a leap year";
+
+  document.getElementById("result").innerHTML = resultText;
+}
+
+  </script> -->
+  <!-- Exercise NO 7
+  <h1>Check Vowel or Consonant</h1>
+  <p>Enter an alphabet:</p>
+  <input type="text" id="alphabet" maxlength="1" placeholder="Enter an alphabet">
+  <button onclick="checkVowelConsonant()">Check</button>
+  <p id="result"></p>
+  <script>
+    function checkVowelConsonant(char) {
+  const vowels = ['a', 'e', 'i', 'o', 'u'];
+  char = char.toLowerCase(); // Convert to lowercase for case-insensitive check
+
+  if (vowels.includes(char)) {
+    return "Vowel";
+  } else {
+    return "Consonant";
+  }
+}
+
+function handleCheck() {
+  const alphabet = document.getElementById("alphabet").value;
+  if (alphabet.length !== 1 || !isNaN(alphabet)) {
+    alert("Please enter a single alphabet character.");
+    return;
+  }
+
+  const result = checkVowelConsonant(alphabet);
+  document.getElementById("result").innerHTML = `The alphabet '${alphabet}' is a ${result}`;
+}
+
+  </script> -->
+  <!-- Exercise No 8
+ <h1>Check Days in Month</h1>
+  <p>Enter a month number (1-12):</p>
+  <input type="number" id="month" min="1" max="12" placeholder="Enter month number">
+  <button onclick="checkDays()">Check</button>
+  <p id="result"></p>
+  <script>
+    function checkDays(month, year) {
+  // Handle optional year input (default to current year)
+  if (year === undefined) {
+    year = new Date().getFullYear();
+  }
+
+  // Use an object to map months to their days (excluding February)
+  const daysInMonth = {
+    1: 31,
+    2: 0, // February will be handled separately
+    3: 31,
+    4: 30,
+    5: 31,
+    6: 30,
+    7: 31,
+    8: 31,
+    9: 30,
+    10: 31,
+    11: 30,
+    12: 31
+  };
+
+  // Check for February: leap year logic
+  if (month === 2) {
+    return (year % 4 === 0 && year % 100 !== 0) || year % 400 === 0 ? 29 : 28;
+  }
+
+  // Return days from the object for other months
+  return daysInMonth[month];
+}
+
+function handleCheck() {
+  const month = parseInt(document.getElementById("month").value);
+  if (month < 1 || month > 12) {
+    alert("Please enter a month number between 1 and 12.");
+    return;
+  }
+
+  const resultText = `The month ${month} has ${checkDays(month)} days.`;
+  document.getElementById("result").innerHTML = resultText;
+} -->
+
+  </script>
+</body>
+</html>
